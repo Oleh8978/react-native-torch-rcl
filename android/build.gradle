@@ -1,0 +1,23 @@
+apply plugin: "com.android.library"
+
+android {
+    namespace "com.cubicphuse.RCTTorch"
+    compileSdkVersion 34
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 34
+    }
+
+    sourceSets {
+        main {
+            java.srcDirs = ["src/main/java"]
+            manifest.srcFile "src/main/AndroidManifest.xml"
+        }
+    }
+}
+
+
+dependencies {
+    implementation "com.facebook.react:react-android"
+}
