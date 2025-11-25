@@ -36,10 +36,16 @@ Usage
 ```sh
 import Torch from 'react-native-torch-rcl';
 
-// Turn ON
-Torch.switchState(true);
+  const onOffFunc = async () => {
+    if (Platform.OS === 'ios') {
+      Torch.switchState(on);
+    } else {
+      const cameraAllowed = await Torch.requestCameraPermission();
 
-// Turn OFF
-Torch.switchState(false);
+      if (cameraAllowed) {
+        Torch.switchState(on);
+      }
+    }
+  };
 
 ```
