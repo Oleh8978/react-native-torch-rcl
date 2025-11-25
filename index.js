@@ -1,39 +1,36 @@
 import { NativeModules, PermissionsAndroid, Platform } from 'react-native';
-const { Torch } = NativeModules || {};
+const TorchNative = NativeModules.Torch || NativeModules.RCTTorch || NativeModules.ReactNativeTorch || NativeModules.reactNativeTorch || NativeModules.rctorch || NativeModules['react-native-torch'] || NativeModules['react-native-torch-rcl'];
 
-async function ensureCameraPermissionAndroid() {
+async function requestCameraPermission() {
   if (Platform.OS !== 'android') return true;
-  const has = await PermissionsAndroid.check(PermissionsAndroid.PERMISSIONS.CAMERA);
-  if (has) return true;
-  const result = await PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.CAMERA);
-  return result === PermissionsAndroid.RESULTS.GRANTED;
+  const granted = await PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.CAMERA);
+  return granted === PermissionsAndroid.RESULTS.GRANTED;
 }
 
 async function switchState(newState) {
-  if (!Torch || !Torch.switchState) {
-    throw new Error('Native module Torch is not linked or not available.');
+  if (!TorchNative || !TorchNative.switchState) {
+    throw new Error('Native module Torch is not available.');
   }
-
-  if (Platform.OS === 'android') {
-    const granted = await ensureCameraPermissionAndroid();
-    if (!granted) throw new Error('Camera permission denied');
-  }
-
-  // native method returns a Promise
-  return Torch.switchState(newState);
+  return TorchNative.switchState(newState);
 }
 
 async function hasTorch() {
-  if (!Torch || !Torch.hasTorch) return false;
+  if (!TorchNative || !TorchNative.hasTorch) return false;
   try {
-    return await Torch.hasTorch();
+    return await TorchNative.hasTorch();
   } catch (e) {
     return false;
   }
 }
 
+async function turnOn() { return switchState(true); }
+async function turnOff() { return switchState(false); }
+
 export default {
-  ...Torch,
+  requestCameraPermission,
   switchState,
-  hasTorch
+  hasTorch,
+  turnOn,
+  turnOff
 };
+export { requestCameraPermission, switchState, hasTorch, turnOn, turnOff };
