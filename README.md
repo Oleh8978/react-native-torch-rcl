@@ -23,14 +23,14 @@ A fully updated, maintained, and CameraX-powered version of the abandoned `react
 npm install react-native-torch-rcl
 # or
 yarn add react-native-torch-rcl
-´´´
+```
 
 iOS Setup
 
 ```sh
 cd ios && pod install
 
-    ´´´
+```
     
 Usage
 ```sh
@@ -42,5 +42,4 @@ Torch.switchState(true);
 // Turn OFF
 Torch.switchState(false);
 
-
-    ´´´
+```
