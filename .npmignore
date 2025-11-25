@@ -1,0 +1,6 @@
+.git
+.github
+android/build
+ios/build
+example/
+node_modules/
