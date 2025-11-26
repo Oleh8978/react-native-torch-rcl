@@ -1,6 +1,6 @@
 {
 "name": "react-native-torch-rcl",
-"version": "2.0.0-modernized",
+"version": "2.0.1",
 "description": "Torch/flashlight for react-native (modernized)",
 "main": "index.js",
 "keywords": ["react","react-native","torch","flashlight","ios","android"],
