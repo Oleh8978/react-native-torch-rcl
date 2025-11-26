@@ -52,7 +52,7 @@ import Torch from 'react-native-torch-rcl';
 # 🔗 Repo link
 
 Github link: 
-[Github → ] (https://github.com/Oleh8978/react-native-torch-rcl)
+[Github → ](https://github.com/Oleh8978/react-native-torch-rcl)
 
 ## 📱 Our Apps
 
