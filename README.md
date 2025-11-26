@@ -49,3 +49,12 @@ import Torch from 'react-native-torch-rcl';
   };
 
 ```
+# 🔗 Repo link
+
+Github link: 
+[Github → ] (https://github.com/Oleh8978/react-native-torch-rcl)
+
+## 📱 Our Apps
+
+We also develop mobile apps — you can check them out on Google Play:
+[Check it out →](https://play.google.com/store/apps/dev?id=7767685652079813306)
